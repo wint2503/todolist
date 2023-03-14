@@ -1,0 +1,92 @@
+*{
+    box-sizing: border-box;
+}
+
+body{
+    width: 100%;
+    height: 100vh;
+    
+    display: grid;
+    place-items: center;
+}
+
+.container{
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+h3{
+    color: #777;
+    font-size: 20px;
+    opacity: 0.8;
+    border-bottom: 1px dashed #777;
+    line-height: 70px;
+
+    margin: 0; /*heading tag include margin & padding originally.*/
+    padding: 0;
+}
+
+small{
+    color: #777;
+    text-align: right;
+    margin-top: 10px;
+
+    display: block; /*small tag is inline so margin doesn't work*/
+}
+
+.form{
+    margin-top: 20px;
+}
+
+.form-control{
+    width: 100%;
+    font-size: 15px;
+    border: 0;
+    border-bottom: 2px solid orange;
+
+    padding: 10px;
+    transition: all .8s;
+}
+
+.form-control:focus{
+    outline:none;
+    border-bottom: 2px solid blue;
+}
+
+.list-group{
+    height: 300px;
+    list-style: none;
+
+    margin: 0; /*list style have padding & margin originally*/
+    padding: 0;
+    
+    overflow-y: hidden; /*if height is over 300px, hide*/
+}
+
+.list-group li{
+    background-color: #f5f5f5;
+    font-size: 15px;
+    border: 1px solid #ddd;
+
+    padding: 15px;
+    margin-top: -1px;
+
+    cursor: pointer;
+}
+
+.list-group li:hover{
+    background-color: #f1f1f1;
+}
+
+.list-group li.done{
+    color: #777;
+    font-style: italic;
+    text-decoration: line-through;
+}
+
+.list-group li.done::after{
+    content: '\f00c';
+    font-family: FontAwesome;
+    float: right;
+}
