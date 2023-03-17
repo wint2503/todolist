@@ -25,11 +25,15 @@ function addnew(){
 
 function updatelocalstorage(){
     var getalllis = document.querySelectorAll('li');
-    console.log(getalllis);
+    // console.log(getalllis);
 
     var todos = [];
     getalllis.forEach(function(getallli){
-        todos.push(getallli.textContent);
+        todos.push({
+            text: getallli.textContent,
+            done: getallli.classList.contains('done')
+        });
     })
-    console.log(todos);
+    // console.log(todos);
+    localStorage.setItem('todos',JSON.stringify(todos));
 }
