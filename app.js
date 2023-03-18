@@ -9,7 +9,7 @@ getform.addEventListener('submit',function(e){
 })
 
 // this function get li from where textbox creates and then insert to ul
-function addnew(){
+function addnew(todo){
     var todotext = gettextbox.value;
     // console.log(todotext);
 
@@ -36,4 +36,17 @@ function updatelocalstorage(){
     })
     // console.log(todos);
     localStorage.setItem('todos',JSON.stringify(todos));
+}
+
+var getlstodos = JSON.parse(localStorage.getItem('todos'));
+// console.log(getlstodos);
+
+// if todos are in the localStorage, loop.
+if(getlstodos){
+    getlstodos.forEach(function(getlstodo){
+        // console.log(getlstodo);
+        // console.log(getlstodo.text);
+
+        addnew(getlstodo);
+    })
 }
