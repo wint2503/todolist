@@ -13,14 +13,36 @@ function addnew(todo){
     var todotext = gettextbox.value;
     // console.log(todotext);
 
-    const li = document.createElement('li');
-    li.appendChild(document.createTextNode(todotext));
-    // li.innerHTML = todotext;
-    // console.log(li);
-    getul.appendChild(li);
-    gettextbox.value='';
+    // parameter ပါရင် parameter ထဲကစာကိုယူမယ်။ မပါရင် textbox က ယူမယ်။
+    if(todo){
+        todotext = todo.text;
+    }
 
-    updatelocalstorage();
+    if(todotext){
+        const li = document.createElement('li');
+
+        if(todo && todo.done){
+            li.classList.add('done');
+        }
+
+        li.appendChild(document.createTextNode(todotext));
+        getul.appendChild(li);
+        gettextbox.value = '';
+
+        updatelocalstorage();
+
+        // left click to complete
+        li.addEventListener('click',function(){
+            li.classList.toggle('done');
+            updatelocalstorage();
+        })
+
+        // right click to remove
+        li.addEventListener('contextmenu',function(){
+            li.remove();
+            updatelocalstorage();
+        })
+    } 
 }
 
 function updatelocalstorage(){
